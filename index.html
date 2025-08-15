@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <title>💳 Credit Card Fraud Detection</title>
 <style>
-  /* Body & global */
   body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
@@ -20,14 +19,8 @@
     color: #fff;
   }
 
-  header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-  }
-
-  header p {
-    font-size: 1.1rem;
-  }
+  header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+  header p { font-size: 1.1rem; }
 
   .container {
     max-width: 900px;
@@ -38,11 +31,7 @@
     box-shadow: 0 15px 30px rgba(0,0,0,0.1);
   }
 
-  .instructions {
-    margin-bottom: 20px;
-    font-size: 1rem;
-    color: #555;
-  }
+  .instructions { margin-bottom: 20px; font-size: 1rem; color: #555; }
 
   textarea {
     width: 100%;
@@ -56,9 +45,7 @@
     transition: border 0.3s;
   }
 
-  textarea:focus {
-    border-color: #27ae60;
-  }
+  textarea:focus { border-color: #27ae60; }
 
   button {
     display: block;
@@ -103,19 +90,11 @@
     border: 1px solid #a8e6a1;
   }
 
-  .loading {
-    font-size: 1.1rem;
-    color: #2980b9;
-  }
+  .loading { font-size: 1.1rem; color: #2980b9; }
 
   @media (max-width: 600px) {
-    .container {
-      margin: 20px;
-      padding: 20px;
-    }
-    button {
-      width: 100%;
-    }
+    .container { margin: 20px; padding: 20px; }
+    button { width: 100%; }
   }
 </style>
 </head>
@@ -173,10 +152,10 @@ async function submitData() {
     const data = await res.json();
     if (data.prediction === 1) {
       output.className = "result error";
-      output.innerHTML = "⚠ Prediction: FRAUD 🚨";
+      output.innerHTML = `⚠ Prediction: FRAUD 🚨<br>Probability: ${data.probability ?? "N/A"}`;
     } else {
       output.className = "result success";
-      output.innerHTML = "✅ Prediction: NOT FRAUD 🎉";
+      output.innerHTML = `✅ Prediction: NOT FRAUD 🎉<br>Probability: ${data.probability ?? "N/A"}`;
     }
   } catch(err) {
     output.className = "result error";
