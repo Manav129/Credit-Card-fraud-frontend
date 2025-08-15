@@ -26,7 +26,7 @@ async function submitData() {
   const payload = Object.fromEntries(keys.map((k,i)=>[k,values[i]]));
 
   try {
-    const res = await fetch("https://credit-card-fraud-frontend-seven.vercel.app/", {
+    const res = await fetch("https://credit-card-fraud-mlops-2.onrender.com/docs#/default/predict_predict_post", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload)
