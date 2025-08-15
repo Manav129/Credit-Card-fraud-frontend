@@ -26,11 +26,11 @@ async function submitData() {
   const payload = Object.fromEntries(keys.map((k,i)=>[k,values[i]]));
 
   try {
-    const res = await fetch("https://credit-card-fraud-mlops-2.onrender.com/predict", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
-    });
+   const res = await fetch("https://credit-card-fraud-mlops-2.onrender.com/predict", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(payload)
+});
     if (!res.ok) throw new Error(`Server returned ${res.status}`);
     const data = await res.json();
     output.className = "result " + (data.prediction === 1 ? "error" : "success");
